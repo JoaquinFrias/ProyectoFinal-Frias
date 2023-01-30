@@ -1,0 +1,82 @@
+[
+    {
+        "id":1,
+        "nombre":"Guitarra",
+        "cantidad":1,
+        "desc":"Instrumento de cuerda, modelo criolla",
+        "precio":50750,
+        "img":"img/guitarra.jpg"
+    },
+    {
+        "id":2,
+        "nombre":"Guitarra Electrica",
+        "cantidad":1,
+        "desc":"Madera Maciza con diapason de madera artificial",
+        "precio":48000,
+        "img":"img/guitarra_electrica.jpg"
+    },
+    {
+        "id":3,
+        "nombre":"Microfono",
+        "cantidad":1,
+        "desc":"tipo dinamico cardioide",
+        "precio":11400,
+        "img":"img/microfono.jpg"
+    },
+    {
+        "id":4,
+        "nombre":"Auriculares",
+        "cantidad":1,
+        "desc":"Sennheiser HD 280 PRO black",
+        "precio":57200,
+        "img":"img/auriculares.jpg"
+    },
+    {
+        "id":5,
+        "nombre":"Cajon Peruano",
+        "cantidad":1,
+        "desc":"Instrumento de percusion ",
+        "precio":5500,
+        "img":"img/cajon_peruano.jpg"
+    },
+    {
+        "id":6,
+        "nombre":"Consola de Sonido",
+        "cantidad":1,
+        "desc":"Mini mezclador bluetooth incorporado",
+        "precio":35000,
+        "img":"img/consola_de_sonido.jpg"
+    },
+    {
+        "id":7,
+        "nombre":"saxofon",
+        "cantidad":1,
+        "desc":"Llave De F# Laqueado",
+        "precio":191200,
+        "img":"img/saxofon.jpg"
+    },
+    {
+        "id":8,
+        "nombre":"Bateria",
+        "cantidad":1,
+        "desc":"Instrumento de percusion",
+        "precio":175000,
+        "img":"img/bateria.jpg"
+    },
+    {
+        "id":9,
+        "nombre":"Parlantes",
+        "cantidad":1,
+        "desc":"Frecuencia hasta 18000hz",
+        "precio":17400,
+        "img":"img/parlantes.jpg"
+    },
+    {
+        "id":10,
+        "nombre":"Piano",
+        "cantidad":1,
+        "desc":"Sonido polifonico",
+        "precio":20000,
+        "img":"img/piano.jpg"
+    }
+]
