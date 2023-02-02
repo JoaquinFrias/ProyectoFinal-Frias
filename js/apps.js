@@ -1,85 +1,5 @@
-/* const stockProductos = [
-    {   id: 1,
-        nombre: "Guitarra",
-        cantidad: 1,
-        desc: "Instrumento de cuerda, modelo criolla",
-        precio: 50750,
-        img: "img/guitarra.jpg",
-    },
-    {
-        id: 2,
-        nombre: "Guitarra Electrica",
-        cantidad: 1,
-        desc: "Madera Maciza con diapason de madera artificial",
-        precio: 48000,
-        img: "img/guitarra_electrica.jpg",
-    },
-    {
-        id: 3,
-        nombre: "Microfono",
-        cantidad: 1,
-        desc: "tipo dinamico cardioide",
-        precio: 11400,
-        img: "img/microfono.jpg",
-    },
-    {
-        id: 4,
-        nombre: "Auriculares",
-        cantidad: 1,
-        desc: "Sennheiser HD 280 PRO black",
-        precio: 57200,
-        img: "img/auriculares.jpg",
-    },
-    {
-        id: 5,
-        nombre: "Cajon Peruano",
-        cantidad: 1,
-        desc: "Instrumento de percusion ",
-        precio: 5500,
-        img: "img/cajon_peruano.jpg",
-    },
-    {
-        id: 6,
-        nombre: "Consola de Sonido",
-        cantidad: 1,
-        desc: "Mini mezclador bluetooth incorporado",
-        precio: 35000,
-        img: "img/consola_de_sonido.jpg",
-    },
-    {
-        id: 7,
-        nombre: "saxofon",
-        cantidad: 1,
-        desc: "Llave De F# Laqueado",
-        precio: 191200,
-        img: "img/saxofon.jpg",
-    },
-    {
-        id: 8,
-        nombre: "Bateria",
-        cantidad: 1,
-        desc: "Instrumento de percusion",
-        precio: 175000,
-        img: "img/bateria.jpg",
-    },
-    {
-        id: 9,
-        nombre: "Parlantes",
-        cantidad: 1,
-        desc: "Frecuencia hasta 18000hz",
-        precio: 17400,
-        img: "img/parlantes.jpg",
-    },
-    {
-        id: 10,
-        nombre: "Piano",
-        cantidad: 1,
-        desc: "Sonido polifonico",
-        precio: 20000,
-        img: "img/piano.jpg",
-    },
-    
-]; */
+//DATOS JSON Y FETCH
+
 const url = "./data/data.json";
 fetch(url)
 .then(res => res.json())
@@ -88,6 +8,7 @@ fetch(url)
     prods = data;    
 })
 
+//VARIABLES
 
 let carrito = [];
 let prods = 0;
@@ -99,6 +20,8 @@ const activarFuncion = document.querySelector("#activarFuncion");
 const procesarCompra = document.querySelector("#procesarCompra");
 const totalProceso = document.querySelector("#totalProceso");
 const formulario = document.querySelector('#procesar-pago')
+
+//FUNCIONES DEL CARRITO
 
 if (activarFuncion) {
     activarFuncion.addEventListener("click", procesarPedido);
@@ -137,6 +60,8 @@ if (procesarCompra) {
     });
 }
 
+//RENDERIZAR PRODUCTOS HTML
+
 function renderizarProductos(productos){
     const { id, nombre, precio, desc, img, cantidad } = productos;
     productos.forEach((prod) => {
@@ -158,7 +83,7 @@ function renderizarProductos(productos){
 }
 
 
-//otro
+//FUNCION AGREGAR PRODUCTOS AL CARRITO
 function agregarProducto(id){
     const existe = carrito.some(prod => prod.id === id)
     if(existe){
@@ -179,56 +104,7 @@ function agregarProducto(id){
     mostrarCarrito();
 }
 
-
-
-/* const agregarProducto = (id) => {
-    const existe = carrito.some(prod => prod.id === id)  
-    if(existe){
-        const prod = carrito.map(prod => {
-            if(prod.id === id){
-                prod.cantidad++
-            }
-        })
-    } else {
-        const item = stockProductos.find((prod) => prod.id === id)
-        carrito.push(item)
-    }
-    mostrarCarrito()
-}; */
-
-/* stockProductos.forEach((prod) => {
-    const { id, nombre, precio, desc, img, cantidad } = prod;
-    if (contenedor) {
-        contenedor.innerHTML += `
-        <div class="card mt-3" style="width: 18rem;">
-        <img class="card-img-top mt-2 imagen" src="${img}" alt="Card image cap">
-        <div class="card-body">
-        <h5 class="card-title">${nombre}</h5>
-        <p class="card-text">Precio: ${precio}$</p>
-        <p class="card-text">Descripcion: ${desc}</p>
-        <p class="card-text">Cantidad: ${cantidad}</p>
-        <button class="btn btn-primary" onclick="agregarProducto(${id})">Comprar Producto</button>
-        </div>
-        </div>
-    `;
-    }
-}); */
-
-/* const agregarProducto = (id) => {
-    const existe = carrito.some(prod => prod.id === id)  
-    if(existe){
-        const prod = carrito.map(prod => {
-            if(prod.id === id){
-                prod.cantidad++
-            }
-        })
-    } else {
-        const item = stockProductos.find((prod) => prod.id === id)
-        carrito.push(item)
-    }
-    mostrarCarrito()
-}; */
-
+//CARRITO HTML
 const mostrarCarrito = () => {
     const modalBody = document.querySelector(".modal .modal-body");
     if (modalBody) {
@@ -306,6 +182,7 @@ function procesarPedido() {
     );
 }
 
+//FUNCION COMPRA FINALIZADA / ERROR
 function enviarCompra(e){
     e.preventDefault()
     const cliente = document.querySelector('#cliente').value
@@ -322,10 +199,6 @@ function enviarCompra(e){
         
         const btn = document.getElementById('button');
 
-     // document.getElementById('procesar-pago')
-     //  .addEventListener('submit', function(event) {
-     //    event.preventDefault();
-
         btn.value = 'Enviando...';
 
         const serviceID = 'default_service';
@@ -334,7 +207,13 @@ function enviarCompra(e){
         emailjs.sendForm(serviceID, templateID, this)
         .then(() => {
             btn.value = 'Finalizar compra';
-            alert('Correo enviado!');
+            Swal.fire({
+                position: 'top-front',
+                icon: 'success',
+                title: 'Correo enviado',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }, (err) => {
             btn.value = 'Finalizar compra';
             alert(JSON.stringify(err));
